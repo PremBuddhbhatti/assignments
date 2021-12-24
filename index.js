@@ -56,3 +56,12 @@ function btnClear() {
   document.getElementById("ans").innerHTML = 0;
   flag = true;
 }
+
+function btnDel() {
+  document.getElementById("ans").innerHTML = document
+    .getElementById("ans")
+    .innerHTML.slice(0, -1);
+  if (document.getElementById("ans").innerHTML === "") {
+    document.getElementById("ans").innerHTML = 0;
+  }
+}
