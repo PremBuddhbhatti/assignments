@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td colspan="5" class="rgt" id="ans">0</td>
+      </tr>
+      <tr>
+        <td>DEG</td>
+        <td>F-E</td>
+      </tr>
+      <tr>
+        <td>MC</td>
+        <td>MR</td>
+        <td>M+</td>
+        <td>M-</td>
+        <td>MS</td>
+      </tr>
+      <tr>
+        <td colspan="2">Trigonometry</td>
+        <td colspan="2">Function</td>
+      </tr>
+      <tr>
+        <td>2<sup>nd</sup></td>
+        <td>&#960</td>
+        <td>e</td>
+        <td id="clr" onclick="btnClear()">C</td>
+        <td>DEL</td>
+      </tr>
+      <tr>
+        <td>x<sup>2</sup></td>
+        <td>x<sup>-1</sup></td>
+        <td>|x|</td>
+        <td>exp</td>
+        <td>mod</td>
+      </tr>
+      <tr>
+        <td><sup>2</sup>&#8730</td>
+        <td>(</td>
+        <td>)</td>
+        <td>n!</td>
+        <td onclick="btnOpration('/')">&#247</td>
+      </tr>
+      <tr>
+        <td>x<sup>y</sup></td>
+        <td id="7" onclick="btnpress('7')">7</td>
+        <td id="8" onclick="btnpress('8')">8</td>
+        <td id="9" onclick="btnpress('9')">9</td>
+        <td onclick="btnOpration('*')">X</td>
+      </tr>
+      <tr>
+        <td>10<sup>x</sup></td>
+        <td id="4" onclick="btnpress('4')">4</td>
+        <td id="5" onclick="btnpress('5')">5</td>
+        <td id="6" onclick="btnpress('6')">6</td>
+        <td onclick="btnOpration('-')">-</td>
+      </tr>
+      <tr>
+        <td>log</td>
+        <td id="1" onclick="btnpress('1')">1</td>
+        <td id="2" onclick="btnpress('2')">2</td>
+        <td id="3" onclick="btnpress('3')">3</td>
+        <td onclick="btnOpration('+')">+</td>
+      </tr>
+      <tr>
+        <td>ln</td>
+        <td>&#177</td>
+        <td id="0" onclick="btnpress('0')">0</td>
+        <td>.</td>
+        <td onclick="getAns()">=</td>
+      </tr>
+    </table>
+  </body>
+</html>
