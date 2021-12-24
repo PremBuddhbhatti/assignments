@@ -5,9 +5,11 @@ let op1,
   flag = true;
 
 function btnpress(val) {
-  if (flag !== false) {
+  if (flag !== true) {
+    console.log(flag);
     btnClear();
   }
+  console.log("press:" + flag);
   opr = document.getElementById("ans").innerHTML;
   if (parseInt(opr) === 0) {
     opr = val;
@@ -26,7 +28,7 @@ function btnOpration(opration) {
 }
 
 function getAns() {
-  flag == false;
+  flag = false;
   op2 = document.getElementById("ans").innerHTML;
   let ans;
   switch (perform) {
@@ -47,6 +49,7 @@ function getAns() {
       document.getElementById("ans").innerHTML = ans;
       break;
   }
+  console.log("ans:" + flag);
 }
 
 function btnClear() {
