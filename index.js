@@ -48,7 +48,15 @@ function getAns() {
       ans = parseInt(op1) / parseInt(op2);
       document.getElementById("ans").innerHTML = ans;
       break;
+
+    case "mod":
+      ans = parseInt(op1) % parseInt(op2);
+      document.getElementById("ans").innerHTML = ans;
+      break;
   }
+  op1 = 0;
+  op2 = 0;
+  perform = "";
   console.log("ans:" + flag);
 }
 
@@ -65,3 +73,5 @@ function btnDel() {
     document.getElementById("ans").innerHTML = 0;
   }
 }
+
+function btnAbs() {}
