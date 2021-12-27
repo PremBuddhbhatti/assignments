@@ -86,3 +86,16 @@ function changesign() {
     ? (document.getElementById("ans").innerHTML = Math.abs(ans))
     : (document.getElementById("ans").innerHTML = "-" + ans);
 }
+
+function btnFactorial() {
+  let val = document.getElementById("ans").innerHTML;
+  let ans = 1;
+  if (val == 0 || val == 1) {
+    document.getElementById("ans").innerHTML = 1;
+  } else {
+    for (var i = val; i >= 1; i--) {
+      ans *= i;
+    }
+    document.getElementById("ans").innerHTML = ans;
+  }
+}
