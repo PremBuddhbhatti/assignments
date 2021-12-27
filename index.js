@@ -99,3 +99,15 @@ function btnFactorial() {
     document.getElementById("ans").innerHTML = ans;
   }
 }
+
+function btnPie() {
+  document.getElementById("ans").innerHTML = (
+    parseFloat(document.getElementById("ans").innerHTML) * 3.14159
+  ).toFixed(2);
+}
+
+function btnLog() {
+  document.getElementById("ans").innerHTML = Math.log(
+    parseFloat(document.getElementById("ans").innerHTML)
+  );
+}
