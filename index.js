@@ -107,6 +107,12 @@ function btnPie() {
 }
 
 function btnLog() {
+  document.getElementById("ans").innerHTML = Math.log10(
+    parseFloat(document.getElementById("ans").innerHTML)
+  );
+}
+
+function btnLn() {
   document.getElementById("ans").innerHTML = Math.log(
     parseFloat(document.getElementById("ans").innerHTML)
   );
