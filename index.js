@@ -23,7 +23,7 @@ function btnpress(val) {
 
 function btnOpration(opration) {
   perform = opration;
-  op1 = parseInt(document.getElementById("ans").innerHTML);
+  op1 = document.getElementById("ans").innerHTML;
   document.getElementById("ans").innerHTML = 0;
 }
 
@@ -33,19 +33,19 @@ function getAns() {
   let ans;
   switch (perform) {
     case "+":
-      ans = parseInt(op1) + parseInt(op2);
+      ans = (parseFloat(op1) + parseFloat(op2)).toFixed(2);
       document.getElementById("ans").innerHTML = ans;
       break;
     case "-":
-      ans = parseInt(op1) - parseInt(op2);
+      ans = (parseFloat(op1) - parseFloat(op2)).toFixed(2);
       document.getElementById("ans").innerHTML = ans;
       break;
     case "*":
-      ans = parseInt(op1) * parseInt(op2);
+      ans = (parseFloat(op1) * parseFloat(op2)).toFixed(2);
       document.getElementById("ans").innerHTML = ans;
       break;
     case "/":
-      ans = parseInt(op1) / parseInt(op2);
+      ans = (parseFloat(op1) / parseFloat(op2)).toFixed(2);
       document.getElementById("ans").innerHTML = ans;
       break;
 
@@ -74,4 +74,15 @@ function btnDel() {
   }
 }
 
-function btnAbs() {}
+function btnAbs() {
+  document.getElementById("ans").innerHTML = Math.abs(
+    document.getElementById("ans").innerHTML
+  );
+}
+
+function changesign() {
+  let ans = document.getElementById("ans").innerHTML;
+  ans[0] === "-"
+    ? (document.getElementById("ans").innerHTML = Math.abs(ans))
+    : (document.getElementById("ans").innerHTML = "-" + ans);
+}
