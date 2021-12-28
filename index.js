@@ -117,3 +117,17 @@ function btnLn() {
     parseFloat(document.getElementById("ans").innerHTML)
   );
 }
+
+function btnPower() {
+  document.getElementById("ans").innerHTML = Math.pow(
+    document.getElementById("ans").innerHTML,
+    2
+  );
+}
+
+function btnInverse() {
+  document.getElementById("ans").innerHTML = Math.pow(
+    document.getElementById("ans").innerHTML,
+    -1
+  );
+}
