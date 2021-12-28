@@ -53,6 +53,12 @@ function getAns() {
       ans = parseInt(op1) % parseInt(op2);
       document.getElementById("ans").innerHTML = ans;
       break;
+
+    case "xy":
+      ans = btnPower_xy();
+      console.log("op1:" + op1 + " op2:" + op2 + " ans:" + ans);
+      document.getElementById("ans").innerHTML = ans;
+      break;
   }
   op1 = 0;
   op2 = 0;
@@ -125,9 +131,37 @@ function btnPower() {
   );
 }
 
+function btnPower10() {
+  document.getElementById("ans").innerHTML = Math.pow(
+    10,
+    parseFloat(document.getElementById("ans").innerHTML).toFixed(2)
+  );
+}
+
+function btnPower_xy() {
+  return Math.pow(parseInt(op1), parseInt(op2));
+}
+
+function btnSqrt() {
+  document.getElementById("ans").innerHTML = Math.sqrt(
+    document.getElementById("ans").innerHTML
+  );
+}
 function btnInverse() {
   document.getElementById("ans").innerHTML = Math.pow(
     document.getElementById("ans").innerHTML,
     -1
+  );
+}
+
+function btnE() {
+  document.getElementById("ans").innerHTML = (
+    parseFloat(document.getElementById("ans").innerHTML) * 2.71828
+  ).toFixed(2);
+}
+
+function btnExpo() {
+  document.getElementById("ans").innerHTML = Math.exp(
+    parseFloat(document.getElementById("ans").innerHTML)
   );
 }
