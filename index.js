@@ -78,6 +78,7 @@ function btnClear() {
 	document.getElementById("ans").innerHTML = 0;
 	flag = true;
 	dot = true;
+	document.getElementById("selTrigo").getElementsByTagName("option")[0].selected = "selected";
 }
 
 function btnDel() {
@@ -169,4 +170,35 @@ function btnExpo() {
 	document.getElementById("ans").innerHTML = Math.exp(
 		parseFloat(document.getElementById("ans").innerHTML)
 	);
+}
+
+function Trigo() {
+	var select = document.getElementById("selTrigo");
+	var text = select.options[select.selectedIndex].text;
+	console.log(text);
+	if (text === "Sin") {
+		document.getElementById("ans").innerHTML = Math.sin(
+			parseFloat(document.getElementById("ans").innerHTML)
+		).toFixed(4);
+	} else if (text === "Cos") {
+		document.getElementById("ans").innerHTML = Math.cos(
+			parseFloat(document.getElementById("ans").innerHTML)
+		).toFixed(4);
+	} else if (text === "Tan") {
+		document.getElementById("ans").innerHTML = Math.tan(
+			parseFloat(document.getElementById("ans").innerHTML)
+		).toFixed(4);
+	} else if (text === "Sinh") {
+		document.getElementById("ans").innerHTML = Math.sinh(
+			parseFloat(document.getElementById("ans").innerHTML)
+		).toFixed(4);
+	} else if (text === "Cosh") {
+		document.getElementById("ans").innerHTML = Math.cosh(
+			parseFloat(document.getElementById("ans").innerHTML)
+		).toFixed(4);
+	} else if (text === "Tanh") {
+		document.getElementById("ans").innerHTML = Math.tanh(
+			parseFloat(document.getElementById("ans").innerHTML)
+		).toFixed(4);
+	}
 }
