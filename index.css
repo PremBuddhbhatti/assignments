@@ -1,4 +1,10 @@
-.rgt {
+.ans {
+	text-align: right;
+	height: 40px;
+	font-size: xx-large;
+}
+
+.whlStr {
 	text-align: right;
 }
 table {
@@ -7,4 +13,13 @@ table {
 
 .bld {
 	font-weight: 700;
+}
+
+.bdrWhite {
+	border: 0px;
+	background: white;
+}
+
+.txtGray {
+	color: gray;
 }
