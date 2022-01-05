@@ -23,3 +23,7 @@ table {
 .txtGray {
 	color: gray;
 }
+
+td:hover {
+	background: rgb(213, 241, 236);
+}
