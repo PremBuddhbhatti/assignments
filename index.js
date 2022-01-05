@@ -3,15 +3,20 @@ let op1,
 	opr,
 	perform,
 	flag = true,
-	dot = true;
+	dot = true,
+	performFlg = true,
+	DOMdisp = document.getElementById("ans"),
+	DOMwhlStr = document.getElementById("whlStr"),
+	DOMselTrigo = document.getElementById("selTrigo").getElementsByTagName("option")[0];
+console.log("dom:" + DOMdisp.innerHTML);
 
 function btnpress(val) {
 	if (flag !== true) {
 		console.log(flag);
-		btnClear();
+		reset();
 	}
 	console.log("press:" + flag);
-	opr = document.getElementById("ans").innerHTML;
+	opr = DOMdisp.innerHTML;
 
 	if (val === "." && dot !== false) {
 		opr = opr + val;
@@ -25,125 +30,139 @@ function btnpress(val) {
 		}
 	}
 	console.log(opr);
-	document.getElementById("ans").innerHTML = opr;
+	DOMdisp.innerHTML = opr;
 }
 
 function btnOpration(opration) {
 	perform = opration;
 	dot = true;
-	op1 = document.getElementById("ans").innerHTML;
-	document.getElementById("ans").innerHTML = 0;
+	op1 = DOMdisp.innerHTML;
+	if (performFlg === true) {
+		if (perform == "xy") {
+			DOMwhlStr.innerHTML = op1 + "^";
+		} else {
+			DOMwhlStr.innerHTML = op1 + perform;
+		}
+	} else {
+		DOMwhlStr.innerHTML = DOMdisp.innerHTML + perform;
+	}
+	DOMdisp.innerHTML = 0;
+	performFlg = false;
 }
 
 function getAns() {
 	flag = false;
-	op2 = document.getElementById("ans").innerHTML;
+	op2 = DOMdisp.innerHTML;
 	let ans;
+	DOMwhlStr.innerHTML = op1 + perform + op2;
 	switch (perform) {
 		case "+":
 			ans = (parseFloat(op1) + parseFloat(op2)).toFixed(2);
-			document.getElementById("ans").innerHTML = ans;
+			DOMdisp.innerHTML = ans;
 			break;
 		case "-":
 			ans = (parseFloat(op1) - parseFloat(op2)).toFixed(2);
-			document.getElementById("ans").innerHTML = ans;
+			DOMdisp.innerHTML = ans;
 			break;
 		case "*":
 			ans = (parseFloat(op1) * parseFloat(op2)).toFixed(2);
-			document.getElementById("ans").innerHTML = ans;
+			DOMdisp.innerHTML = ans;
 			break;
 		case "/":
 			ans = (parseFloat(op1) / parseFloat(op2)).toFixed(2);
-			document.getElementById("ans").innerHTML = ans;
+			DOMdisp.innerHTML = ans;
 			break;
 
 		case "mod":
 			ans = parseInt(op1) % parseInt(op2);
-			document.getElementById("ans").innerHTML = ans;
+			DOMdisp.innerHTML = ans;
 			break;
 
 		case "xy":
 			ans = btnPower_xy();
 			console.log("op1:" + op1 + " op2:" + op2 + " ans:" + ans);
-			document.getElementById("ans").innerHTML = ans;
+			DOMdisp.innerHTML = ans;
+			DOMwhlStr.innerHTML = op1 + "^" + op2;
 			break;
 	}
-	op1 = 0;
+	op1 = ans;
 	op2 = 0;
 	perform = "";
 	console.log("ans:" + flag);
 }
 
-function btnClear() {
-	document.getElementById("ans").innerHTML = 0;
+function reset() {
+	DOMdisp.innerHTML = 0;
 	flag = true;
 	dot = true;
-	document.getElementById("selTrigo").getElementsByTagName("option")[0].selected = "selected";
+	DOMselTrigo.selected = "selected";
+}
+
+function btnClear() {
+	DOMdisp.innerHTML = 0;
+	DOMwhlStr.innerHTML = 0;
+	op1 = 0;
+	op2 = 0;
+	perform = "";
+	performFlg = true;
+	flag = true;
+	dot = true;
+	DOMselTrigo.selected = "selected";
 }
 
 function btnDel() {
-	document.getElementById("ans").innerHTML = document
-		.getElementById("ans")
-		.innerHTML.slice(0, -1);
-	if (document.getElementById("ans").innerHTML === "") {
-		document.getElementById("ans").innerHTML = 0;
+	DOMdisp.innerHTML = DOMdisp.innerHTML.slice(0, -1);
+	if (DOMdisp.innerHTML === "") {
+		DOMdisp.innerHTML = 0;
 	}
 }
 
 function btnAbs() {
-	document.getElementById("ans").innerHTML = Math.abs(document.getElementById("ans").innerHTML);
+	DOMdisp.innerHTML = Math.abs(DOMdisp.innerHTML);
 }
 
 function changesign() {
-	let ans = document.getElementById("ans").innerHTML;
-	ans[0] === "-"
-		? (document.getElementById("ans").innerHTML = Math.abs(ans))
-		: (document.getElementById("ans").innerHTML = "-" + ans);
+	let ans = DOMdisp.innerHTML;
+	ans[0] === "-" ? (DOMdisp.innerHTML = Math.abs(ans)) : (DOMdisp.innerHTML = "-" + ans);
 }
 
 function btnFactorial() {
-	let val = document.getElementById("ans").innerHTML;
+	let val = DOMdisp.innerHTML;
+	DOMdisp;
 	let ans = 1;
 	if (val == 0 || val == 1) {
-		document.getElementById("ans").innerHTML = 1;
+		DOMdisp.innerHTML = 1;
 	} else {
 		for (var i = val; i >= 1; i--) {
 			ans *= i;
 		}
-		document.getElementById("ans").innerHTML = ans;
+		DOMdisp.innerHTML = ans;
 	}
 }
 
 function btnPie() {
-	document.getElementById("ans").innerHTML = (
-		parseFloat(document.getElementById("ans").innerHTML) * 3.14159
-	).toFixed(2);
+	DOMwhlStr.innerHTML = DOMdisp.innerHTML + "&#960";
+	DOMdisp.innerHTML = (parseFloat(DOMdisp.innerHTML) * 3.14159).toFixed(2);
 }
 
 function btnLog() {
-	document.getElementById("ans").innerHTML = Math.log10(
-		parseFloat(document.getElementById("ans").innerHTML)
-	);
+	DOMwhlStr.innerHTML = "log10(" + DOMdisp.innerHTML + ")";
+	DOMdisp.innerHTML = Math.log10(parseFloat(DOMdisp.innerHTML)).toFixed(4);
 }
 
 function btnLn() {
-	document.getElementById("ans").innerHTML = Math.log(
-		parseFloat(document.getElementById("ans").innerHTML)
-	);
+	DOMwhlStr.innerHTML = "ln(" + DOMdisp.innerHTML + ")";
+	DOMdisp.innerHTML = Math.log(parseFloat(DOMdisp.innerHTML));
 }
 
 function btnPower() {
-	document.getElementById("ans").innerHTML = Math.pow(
-		document.getElementById("ans").innerHTML,
-		2
-	);
+	DOMwhlStr.innerHTML = DOMdisp.innerHTML + "^2";
+	DOMdisp.innerHTML = Math.pow(DOMdisp.innerHTML, 2);
 }
 
 function btnPower10() {
-	document.getElementById("ans").innerHTML = Math.pow(
-		10,
-		parseFloat(document.getElementById("ans").innerHTML).toFixed(2)
-	);
+	DOMwhlStr.innerHTML = "10^" + DOMdisp.innerHTML;
+	DOMdisp.innerHTML = Math.pow(10, parseFloat(DOMdisp.innerHTML).toFixed(2));
 }
 
 function btnPower_xy() {
@@ -151,54 +170,40 @@ function btnPower_xy() {
 }
 
 function btnSqrt() {
-	document.getElementById("ans").innerHTML = Math.sqrt(document.getElementById("ans").innerHTML);
+	DOMwhlStr.innerHTML = DOMdisp.innerHTML + "^1/2";
+	DOMdisp.innerHTML = Math.sqrt(DOMdisp.innerHTML);
 }
 function btnInverse() {
-	document.getElementById("ans").innerHTML = Math.pow(
-		document.getElementById("ans").innerHTML,
-		-1
-	);
+	DOMwhlStr.innerHTML = DOMdisp.innerHTML + "^-1";
+	DOMdisp.innerHTML = Math.pow(DOMdisp.innerHTML, -1);
 }
 
 function btnE() {
-	document.getElementById("ans").innerHTML = (
-		parseFloat(document.getElementById("ans").innerHTML) * 2.71828
-	).toFixed(2);
+	DOMwhlStr.innerHTML = DOMdisp.innerHTML + "e";
+	DOMdisp.innerHTML = (parseFloat(DOMdisp.innerHTML) * 2.71828).toFixed(2);
 }
 
 function btnExpo() {
-	document.getElementById("ans").innerHTML = Math.exp(
-		parseFloat(document.getElementById("ans").innerHTML)
-	);
+	DOMwhlStr.innerHTML = "Exp(" + DOMdisp.innerHTML + ")";
+	DOMdisp.innerHTML = Math.exp(parseFloat(DOMdisp.innerHTML));
 }
 
 function Trigo() {
 	var select = document.getElementById("selTrigo");
 	var text = select.options[select.selectedIndex].text;
 	console.log(text);
+	DOMwhlStr.innerHTML = text + "(" + DOMdisp.innerHTML + ")";
 	if (text === "Sin") {
-		document.getElementById("ans").innerHTML = Math.sin(
-			parseFloat(document.getElementById("ans").innerHTML)
-		).toFixed(4);
+		DOMdisp.innerHTML = Math.sin(parseFloat(DOMdisp.innerHTML)).toFixed(4);
 	} else if (text === "Cos") {
-		document.getElementById("ans").innerHTML = Math.cos(
-			parseFloat(document.getElementById("ans").innerHTML)
-		).toFixed(4);
+		DOMdisp.innerHTML = Math.cos(parseFloat(DOMdisp.innerHTML)).toFixed(4);
 	} else if (text === "Tan") {
-		document.getElementById("ans").innerHTML = Math.tan(
-			parseFloat(document.getElementById("ans").innerHTML)
-		).toFixed(4);
+		DOMdisp.innerHTML = Math.tan(parseFloat(DOMdisp.innerHTML)).toFixed(4);
 	} else if (text === "Sinh") {
-		document.getElementById("ans").innerHTML = Math.sinh(
-			parseFloat(document.getElementById("ans").innerHTML)
-		).toFixed(4);
+		DOMdisp.innerHTML = Math.sinh(parseFloat(DOMdisp.innerHTML)).toFixed(4);
 	} else if (text === "Cosh") {
-		document.getElementById("ans").innerHTML = Math.cosh(
-			parseFloat(document.getElementById("ans").innerHTML)
-		).toFixed(4);
+		DOMdisp.innerHTML = Math.cosh(parseFloat(DOMdisp.innerHTML)).toFixed(4);
 	} else if (text === "Tanh") {
-		document.getElementById("ans").innerHTML = Math.tanh(
-			parseFloat(document.getElementById("ans").innerHTML)
-		).toFixed(4);
+		DOMdisp.innerHTML = Math.tanh(parseFloat(DOMdisp.innerHTML)).toFixed(4);
 	}
 }
