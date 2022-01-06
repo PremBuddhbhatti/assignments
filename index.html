@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="index.css" />
+
+  <title>Document</title>
+</head>
+
+<body>
+  <table>
+
+    <tr>
+      <td colspan="5" class="whlStr txtGray" id="whlStr">
+        0
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5" class="ans" id="ans">0</td>
+    </tr>
+    <tr>
+      <td>DEG</td>
+      <td>F-E</td>
+    </tr>
+    <tr>
+      <td class="txtGray">MC</td>
+      <td class="txtGray">MR</td>
+      <td>M+</td>
+      <td>M-</td>
+      <td>MS</td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <select class="bdrWhite" onchange="Trigo()" id="selTrigo">
+          <option>Trigonometry</option>
+          <option value="sin">Sin</option>
+          <option value="cos">Cos</option>
+          <option value="tan">Tan</option>
+          <option value="sinh">Sinh</option>
+          <option value="cosh">Cosh</option>
+          <option value="tanh">Tanh</option>
+        </select>
+      </td>
+      <td colspan="2">
+        <select class="bdrWhite">
+          <option>
+            Function
+          </option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>2<sup>nd</sup></td>
+      <td onclick="btnPie()" class="">&#960</td>
+      <td onclick="btnE()" class="">e</td>
+      <td id="clr" onclick="btnClear()" class="">C</td>
+      <td onclick="btnDel()" style="font-size: 30px;">&#11013;</td>
+    </tr>
+    <tr>
+      <td onclick="btnPower()" class="">x<sup>2</sup></td>
+      <td onclick="btnInverse()" class=""><sup>1</sup>/<sub>x</sub></td>
+      <td onclick="btnAbs()" class="">|x|</td>
+      <td onclick="btnExpo()" class="">exp</td>
+      <td onclick="btnOpration('mod')" class="">mod</td>
+    </tr>
+    <tr>
+      <td onclick="btnSqrt()" class=""><sup>2</sup>&#8730<sub>x</sub></td>
+      <td>(</td>
+      <td>)</td>
+      <td onclick="btnFactorial()" class="">n!</td>
+      <td onclick="btnOpration('/')" class="">&#247</td>
+    </tr>
+    <tr>
+      <td onclick="btnOpration('xy')" class="">x<sup>y</sup></td>
+      <td id="7" onclick="btnpress('7')" class="bld">7</td>
+      <td id="8" onclick="btnpress('8')" class="bld">8</td>
+      <td id="9" onclick="btnpress('9')" class="bld">9</td>
+      <td onclick="btnOpration('*')" class="">X</td>
+    </tr>
+    <tr>
+      <td onclick="btnPower10()" class="">10<sup>x</sup></td>
+      <td id="4" onclick="btnpress('4')" class="bld">4</td>
+      <td id="5" onclick="btnpress('5')" class="bld">5</td>
+      <td id="6" onclick="btnpress('6')" class="bld">6</td>
+      <td onclick="btnOpration('-')" class="">-</td>
+    </tr>
+    <tr>
+      <td onclick="btnLog()" class="">log</td>
+      <td id="1" onclick="btnpress('1')" class="bld">1</td>
+      <td id="2" onclick="btnpress('2')" class="bld">2</td>
+      <td id="3" onclick="btnpress('3')" class="bld">3</td>
+      <td onclick="btnOpration('+')" class="">+</td>
+    </tr>
+    <tr>
+      <td onclick="btnLn()" class="">ln</td>
+      <td id="sign" onclick="changesign()" class=""><sup>+</sup>/<sub>-</sub></td>
+      <td id="0" onclick="btnpress('0')" class="bld">0</td>
+      <td id="dot" onclick="btnpress('.')" class="">.</td>
+      <td onclick="getAns()" style="background-color: aqua;">=</td>
+    </tr>
+  </table>
+  <script src="index.js"></script>
+</body>
+
+</html>

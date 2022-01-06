@@ -1,0 +1,29 @@
+.ans {
+	text-align: right;
+	height: 40px;
+	font-size: xx-large;
+}
+
+.whlStr {
+	text-align: right;
+}
+table {
+	border: 1px solid black;
+}
+
+.bld {
+	font-weight: 700;
+}
+
+.bdrWhite {
+	border: 0px;
+	background: white;
+}
+
+.txtGray {
+	color: gray;
+}
+
+td:hover {
+	background: rgb(213, 241, 236);
+}
