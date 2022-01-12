@@ -1,7 +1,7 @@
-let op1,
-	op2,
-	opr,
-	perform,
+let op1: string,
+	op2: string,
+	opr: string,
+	perform: string,
 	flag = true,
 	dot = true,
 	performFlg = true,
@@ -46,7 +46,7 @@ function btnOpration(opration) {
 	} else {
 		DOMwhlStr.innerHTML = DOMdisp.innerHTML + perform;
 	}
-	DOMdisp.innerHTML = 0;
+	DOMdisp.innerHTML = "0";
 	performFlg = false;
 }
 
@@ -86,57 +86,59 @@ function getAns() {
 			break;
 	}
 	op1 = ans;
-	op2 = 0;
+	op2 = "0";
 	perform = "";
 	console.log("ans:" + flag);
 }
 
 function reset() {
-	DOMdisp.innerHTML = 0;
+	DOMdisp.innerHTML = "0";
 	flag = true;
 	dot = true;
-	DOMselTrigo.selected = "selected";
+	DOMselTrigo.selected = true;
 }
 
 function btnClear() {
-	DOMdisp.innerHTML = 0;
-	DOMwhlStr.innerHTML = 0;
-	op1 = 0;
-	op2 = 0;
+	DOMdisp.innerHTML = "0";
+	DOMwhlStr.innerHTML = "0";
+	op1 = "0";
+	op2 = "0";
 	perform = "";
 	performFlg = true;
 	flag = true;
 	dot = true;
-	DOMselTrigo.selected = "selected";
+	DOMselTrigo.selected = true;
 }
 
 function btnDel() {
 	DOMdisp.innerHTML = DOMdisp.innerHTML.slice(0, -1);
 	if (DOMdisp.innerHTML === "") {
-		DOMdisp.innerHTML = 0;
+		DOMdisp.innerHTML = "0";
 	}
 }
 
 function btnAbs() {
-	DOMdisp.innerHTML = Math.abs(DOMdisp.innerHTML);
+	DOMdisp.innerHTML = Math.abs(parseInt(DOMdisp.innerHTML)).toString();
 }
 
 function changesign() {
 	let ans = DOMdisp.innerHTML;
-	ans[0] === "-" ? (DOMdisp.innerHTML = Math.abs(ans)) : (DOMdisp.innerHTML = "-" + ans);
+	ans[0] === "-"
+		? (DOMdisp.innerHTML = Math.abs(parseInt(ans)).toString())
+		: (DOMdisp.innerHTML = "-" + ans);
 }
 
 function btnFactorial() {
-	let val = DOMdisp.innerHTML;
+	let val = parseInt(DOMdisp.innerHTML);
 	DOMdisp;
 	let ans = 1;
 	if (val == 0 || val == 1) {
-		DOMdisp.innerHTML = 1;
+		DOMdisp.innerHTML = "1";
 	} else {
 		for (var i = val; i >= 1; i--) {
 			ans *= i;
 		}
-		DOMdisp.innerHTML = ans;
+		DOMdisp.innerHTML = ans.toString();
 	}
 }
 
@@ -152,17 +154,20 @@ function btnLog() {
 
 function btnLn() {
 	DOMwhlStr.innerHTML = "ln(" + DOMdisp.innerHTML + ")";
-	DOMdisp.innerHTML = Math.log(parseFloat(DOMdisp.innerHTML));
+	DOMdisp.innerHTML = Math.log(parseFloat(DOMdisp.innerHTML)).toFixed(4).toString();
 }
 
 function btnPower() {
 	DOMwhlStr.innerHTML = DOMdisp.innerHTML + "^2";
-	DOMdisp.innerHTML = Math.pow(DOMdisp.innerHTML, 2);
+	DOMdisp.innerHTML = Math.pow(parseInt(DOMdisp.innerHTML), 2).toString();
 }
 
 function btnPower10() {
 	DOMwhlStr.innerHTML = "10^" + DOMdisp.innerHTML;
-	DOMdisp.innerHTML = Math.pow(10, parseFloat(DOMdisp.innerHTML).toFixed(2));
+	DOMdisp.innerHTML = Math.pow(
+		10,
+		parseFloat(parseFloat(DOMdisp.innerHTML).toFixed(2))
+	).toString();
 }
 
 function btnPower_xy() {
@@ -171,11 +176,11 @@ function btnPower_xy() {
 
 function btnSqrt() {
 	DOMwhlStr.innerHTML = DOMdisp.innerHTML + "^1/2";
-	DOMdisp.innerHTML = Math.sqrt(DOMdisp.innerHTML);
+	DOMdisp.innerHTML = Math.sqrt(parseInt(DOMdisp.innerHTML)).toString();
 }
 function btnInverse() {
 	DOMwhlStr.innerHTML = DOMdisp.innerHTML + "^-1";
-	DOMdisp.innerHTML = Math.pow(DOMdisp.innerHTML, -1);
+	DOMdisp.innerHTML = Math.pow(parseInt(DOMdisp.innerHTML), -1).toString();
 }
 
 function btnE() {
@@ -185,12 +190,12 @@ function btnE() {
 
 function btnExpo() {
 	DOMwhlStr.innerHTML = "Exp(" + DOMdisp.innerHTML + ")";
-	DOMdisp.innerHTML = Math.exp(parseFloat(DOMdisp.innerHTML));
+	DOMdisp.innerHTML = Math.exp(parseFloat(DOMdisp.innerHTML)).toString();
 }
 
-function Trigo() {
-	var select = document.getElementById("selTrigo");
-	var text = select.options[select.selectedIndex].text;
+function Trigo(text: string) {
+	/* var select = document.getElementById("selTrigo");
+	var text = select.innerHTML; */
 	console.log(text);
 	DOMwhlStr.innerHTML = text + "(" + DOMdisp.innerHTML + ")";
 	if (text === "Sin") {

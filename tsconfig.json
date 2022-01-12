@@ -1,0 +1,10 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es2017",
+		"outDir": "ts-js",
+		"declaration": true,
+		"sourceMap": true
+	},
+	"include": ["./index.ts"]
+}

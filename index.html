@@ -34,14 +34,14 @@
     </tr>
     <tr>
       <td colspan="2">
-        <select class="bdrWhite" onchange="Trigo()" id="selTrigo">
+        <select class="bdrWhite" id="selTrigo">
           <option>Trigonometry</option>
-          <option value="sin">Sin</option>
-          <option value="cos">Cos</option>
-          <option value="tan">Tan</option>
-          <option value="sinh">Sinh</option>
-          <option value="cosh">Cosh</option>
-          <option value="tanh">Tanh</option>
+          <option onclick="Trigo('Sin')" value="sin">Sin</option>
+          <option onclick="Trigo('Cos')" value="cos">Cos</option>
+          <option onclick="Trigo('Tan')" value="tan">Tan</option>
+          <option onclick="Trigo('Sinh')" value="sinh">Sinh</option>
+          <option onclick="Trigo('Cosh')" value="cosh">Cosh</option>
+          <option onclick="Trigo('Tanh')" value="tanh">Tanh</option>
         </select>
       </td>
       <td colspan="2">
@@ -102,7 +102,7 @@
       <td onclick="getAns()" style="background-color: aqua;">=</td>
     </tr>
   </table>
-  <script src="index.js"></script>
+  <script src="./ts-js/index.js"></script>
 </body>
 
 </html>
