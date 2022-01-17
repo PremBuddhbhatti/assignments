@@ -114,7 +114,7 @@ function changesign() {
 }
 function btnFactorial() {
     let val = parseInt(DOMdisp.innerHTML);
-    DOMdisp;
+    DOMwhlStr.innerHTML = DOMdisp.innerHTML + "!";
     let ans = 1;
     if (val == 0 || val == 1) {
         DOMdisp.innerHTML = "1";
@@ -171,9 +171,11 @@ function Trigo(text) {
     console.log(text);
     DOMwhlStr.innerHTML = text + "(" + DOMdisp.innerHTML + ")";
     if (text === "Sin") {
+        console.log("sin:" + DOMdisp.innerHTML);
         DOMdisp.innerHTML = Math.sin(parseFloat(DOMdisp.innerHTML)).toFixed(4);
     }
     else if (text === "Cos") {
+        console.log("cos:" + DOMdisp.innerHTML);
         DOMdisp.innerHTML = Math.cos(parseFloat(DOMdisp.innerHTML)).toFixed(4);
     }
     else if (text === "Tan") {
